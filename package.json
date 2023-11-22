@@ -4,6 +4,9 @@
 	"description": "A CLI tool for accessing the Twitter API for free!",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"bin": {
+		"rettiwt": "dist/index.js"
+	},
 	"scripts": {
 		"build": "tsc",
 		"prepare": "tsc",
