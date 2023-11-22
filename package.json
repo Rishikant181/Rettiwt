@@ -1,0 +1,27 @@
+{
+  "name": "rettiwt",
+  "version": "1.0.0",
+  "description": "A CLI tool for accessing the Twitter API for free!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "format": "prettier --write .",
+    "lint": "eslint --max-warnings 0 .",
+    "docs": "typedoc src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishikant181/Rettiwt.git"
+  },
+  "author": {
+    "email": "rishikantsahu181@gmail.com",
+    "name": "Rishikant Sahu"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rishikant181/Rettiwt/issues"
+  },
+  "homepage": "https://github.com/Rishikant181/Rettiwt#readme"
+}
