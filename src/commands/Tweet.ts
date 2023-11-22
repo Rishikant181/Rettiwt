@@ -2,6 +2,9 @@
 import { createCommand } from 'commander';
 import { Rettiwt } from 'rettiwt-api';
 
+// MODELS
+import { TweetSearchOptions } from '../models/TweetSearchOptions';
+
 // UTILITY
 import { output } from '../helper/CliUtils';
 
@@ -31,28 +34,15 @@ tweet
 	.option('-t, --to <string>', "Matches the tweets made to the list of given users, separated by ';'")
 	.option('-w, --words <string>', "Matches the tweets containing the given list of words, separated by ';'")
 	.option('-h, --hashtags <string>', "Matches the tweets containing the given list of hashtags, separated by ';'")
-	.option('-s, --start <string>', 'Matches the tweets made since the given date')
-	.option('-e, --end <string>', 'Matches the tweets made upto the given date')
-	.action(
-		async (
-			count?: string,
-			cursor?: string,
-			options?: { from: string; to: string; words: string; hashtags: string; start: string; end: string },
-		) => {
-			const tweets = await rettiwt.tweet.search(
-				{
-					fromUsers: options?.from ? options?.from.split(';') : undefined,
-					toUsers: options?.to ? options?.to.split(';') : undefined,
-					words: options?.words ? options?.words.split(';') : undefined,
-					hashtags: options?.hashtags ? options?.hashtags.split(';') : undefined,
-					startDate: options?.start ? new Date(options.start) : undefined,
-					endDate: options?.end ? new Date(options.end) : undefined,
-				},
-				count ? parseInt(count) : undefined,
-				cursor,
-			);
-			output(tweets);
-		},
-	);
+	.option('-s, --start <string>', 'Matches the tweets made since the given date (valid date string)')
+	.option('-e, --end <string>', 'Matches the tweets made upto the given date (valid date string)')
+	.action(async (count?: string, cursor?: string, options?: TweetSearchOptions) => {
+		const tweets = await rettiwt.tweet.search(
+			new TweetSearchOptions(options).toTweetFilter(),
+			count ? parseInt(count) : undefined,
+			cursor,
+		);
+		output(tweets);
+	});
 
 export default tweet;

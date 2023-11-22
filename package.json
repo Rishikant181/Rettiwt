@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"commander": "11.1.0",
-		"rettiwt-api": "2.3.0"
+		"rettiwt-api": "2.3.0",
+		"rettiwt-core": "^3.2.1"
 	}
 }
