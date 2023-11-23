@@ -3,7 +3,7 @@ import { createCommand } from 'commander';
 import { Rettiwt } from 'rettiwt-api';
 
 // MODELS
-import { TweetSearchOptions } from '../models/TweetSearchOptions';
+import { TweetSearchOptions } from '../options/TweetSearchOptions';
 
 // UTILITY
 import { output } from '../helper/CliUtils';

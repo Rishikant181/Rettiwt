@@ -1,13 +1,12 @@
 // PACKAGES
 import { TweetFilter } from 'rettiwt-core';
 
-// TYPES
-import { ITweetSearchOptions } from '../types/TweetSearchOptions';
-
 /**
  * The search options supplied while searching for tweets.
+ *
+ * @remarks The search options are implementations of the ones offered by {@link TweetFilter}
  */
-export class TweetSearchOptions implements ITweetSearchOptions {
+export class TweetSearchOptions {
 	public from?: string;
 	public to?: string;
 	public words?: string;
@@ -32,7 +31,7 @@ export class TweetSearchOptions implements ITweetSearchOptions {
 	/**
 	 * Converts the filter options to a format recognizable by rettiwt-api.
 	 *
-	 * @returns The 'TweetFilter' representation of filter options.
+	 * @returns The '{@link TweetFilter}' representation of filter options.
 	 */
 	public toTweetFilter(): TweetFilter {
 		return new TweetFilter({
