@@ -9,7 +9,7 @@ import { output } from '../helper/CliUtils';
 const rettiwt = new Rettiwt({ apiKey: process.env.API_KEY });
 
 // Creating the 'user' command
-const user = createCommand('user').description('Command for accessing resources releated to users');
+const user = createCommand('user').description('Access resources releated to users');
 
 // Details
 user.command('details')

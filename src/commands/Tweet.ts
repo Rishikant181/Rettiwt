@@ -12,7 +12,7 @@ import { output } from '../helper/CliUtils';
 const rettiwt = new Rettiwt({ apiKey: process.env.API_KEY });
 
 // Creating the 'tweet' command
-const tweet = createCommand('tweet').description('Command for accessing resources releated to tweets');
+const tweet = createCommand('tweet').description('Access resources releated to tweets');
 
 // Details
 tweet
@@ -84,7 +84,7 @@ tweet
 // Post
 tweet
 	.command('post')
-	.description('Post a tweet')
+	.description('Post a tweet (text only)')
 	.argument('<text>', 'The text to post as a tweet')
 	.action(async (text: string) => {
 		const result = await rettiwt.tweet.tweet(text);
